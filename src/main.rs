@@ -10,7 +10,7 @@ use std::time::{Duration, Instant};
 fn open_ssh_connection(hostname: &str) -> PtySession {
     let cmd = format!("ssh {}", hostname);
     let mut p = spawn(&cmd, Some(30000))
-        .unwrap_or_else(|e| panic!("Failed to launch QEMU in Docker: {}", e));
+        .unwrap_or_else(|e| panic!("Failed to launch ssh: {}", e));
     println!("ssh opened. (Touching security key may be needed.)");
     p.exp_regex(r"\$").unwrap();
     println!("prompt found");
