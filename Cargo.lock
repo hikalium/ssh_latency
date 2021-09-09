@@ -224,8 +224,7 @@ dependencies = [
 [[package]]
 name = "rexpect"
 version = "0.4.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "862c0149d91461fab225ddd06a5af919913f5c57405ed4f27d2466d6cc877186"
+source = "git+https://github.com/hikalium/rexpect.git#a4e49d7be402ed46f53f26be9861742a7d708358"
 dependencies = [
  "error-chain",
  "nix",
