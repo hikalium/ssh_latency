@@ -81,3 +81,11 @@ fn main() {
         sleep(Duration::new(1, 0));
     }
 }
+
+#[test]
+fn test_stddev() {
+    let data = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    assert_eq!(mean(&data), 5.0);
+    assert_eq!(variance(&data), 11.0);
+    assert_eq!(stddev(&data), 11.0_f32.sqrt());
+}
