@@ -1,5 +1,6 @@
 extern crate rexpect;
 
+use chrono::Local;
 use rexpect::session::PtySession;
 use rexpect::spawn;
 use std::cmp;
@@ -70,13 +71,14 @@ fn main() {
         max = cmp::max(max, elapsed_ms);
         min = cmp::min(min, elapsed_ms);
         println!(
-            "{:?} mean: {}, sd: {}, min: {}, max: {}, count: {}",
-            elapsed,
+            "{}[{:3}]: mean={:<6.2} sd={:<6.2} min={:<4} max={:<4} {:4} ms",
+            Local::now().format("%Y-%m-%d %H:%M:%S"),
+            elapsed_times_ms.len(),
             mean,
             stddev,
             min,
             max,
-            elapsed_times_ms.len()
+            elapsed_ms,
         );
         sleep(Duration::new(1, 0));
     }

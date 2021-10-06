@@ -8,3 +8,4 @@ edition = "2018"
 
 [dependencies]
 rexpect = { git = "https://github.com/hikalium/rexpect.git" }
+chrono = "0.4"
