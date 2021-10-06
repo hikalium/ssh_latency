@@ -11,8 +11,7 @@ use std::time::{Duration, Instant};
 fn mean(v: &[u128]) -> f32 {
     let sum = v.iter().sum::<u128>() as f32;
     let count = v.len();
-    let mean = sum / count as f32;
-    mean
+    sum / count as f32
 }
 
 fn variance(v: &[u128]) -> f32 {
@@ -44,8 +43,7 @@ fn ping_and_increment_seq(ssh: &mut PtySession, seq: &usize) -> Duration {
     let expected = format!("hello {}", seq);
     ssh.send_line(&cmd).unwrap();
     ssh.exp_regex(&expected).unwrap();
-    let elapsed = now.elapsed();
-    elapsed
+    now.elapsed()
 }
 
 fn main() {
@@ -55,7 +53,7 @@ fn main() {
         return;
     }
     let host = &args[1];
-    let mut ssh = open_ssh_connection(&host);
+    let mut ssh = open_ssh_connection(host);
 
     let mut max = 0;
     let mut min = std::u128::MAX;
